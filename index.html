@@ -20,7 +20,7 @@
       position: relative;
       width:100%;
       max-width: 400px;
-      aspect-ratio:1080/950;
+      aspect-ratio:950/1080;
       background: url("images/MVMCard.png") no-repeat center/cover; /* 🔥 cambia por tu PNG de Canva */
       border-radius: 12px;
       overflow: hidden;
@@ -132,12 +132,6 @@
       }
     });
 
-    // === CIUDAD ===
-    const ciudadInput = document.getElementById("ciudadInput");
-    const previewCiudad = document.getElementById("previewCiudad");
-    ciudadInput.addEventListener("input", function() {
-      previewCiudad.textContent = ciudadInput.value || "Ciudad";
-    });
         // === NOMBRE ===
     const nombreInput = document.getElementById("nombreInput");
     const previewNombre = document.getElementById("previewNombre");
@@ -145,13 +139,13 @@
       previewNombre.textContent = nombreInput.value || "Nombre";
     });
 
-    // === TELÉFONO ===
-    const telefonoInput = document.getElementById("telefonoInput");
-    const previewTelefono = document.getElementById("previewTelefono");
-    telefonoInput.addEventListener("input", function() {
-      previewTelefono.textContent = telefonoInput.value 
-        ? "Tel: " + telefonoInput.value 
-        : "Tel: 0000000000";
+    // === Fecha-Hora ===
+    const Fecha-horaInput = document.getElementById("fecha-horaInput");
+    const previewFecha-hora = document.getElementById("previewFecha-hora");
+    Fecha-horaInput.addEventListener("input", function() {
+      previewFecha-hora.textContent = Fecha-horaInput.value 
+        ? "C. " + Fecha-horaInput.value 
+        : "C. El Altísimo";
     });
 
     // === DESCARGAR TARJETA ===
