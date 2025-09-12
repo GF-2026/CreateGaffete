@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Tarjetas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #f3f3f3;
+    }
+
+    /* === TARJETA === */
+    .tarjeta.plantilla-canva {
+      position: relative;
+      width:100%;
+      max-width: 400px;
+      aspect-ratio:1080/950;
+      background: url("images/MVMCard.png") no-repeat center/cover; /* 🔥 cambia por tu PNG de Canva */
+      border-radius: 12px;
+      overflow: hidden;
+      border:3px solid black;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+    }
+
+    /* Foto */
+    .tarjeta.plantilla-canva .foto {
+      position: absolute;
+      bottom: 57px;   
+      right: 18px;    
+      width: 165px;
+      height: 220px;
+      border-radius: 45%;
+      border: 4px solid green;
+      object-fit: cover;
+      z-index: 5;
+    }
+
+    /* Ciudad */
+    .tarjeta.plantilla-canva .ciudad {
+      position: absolute;
+      top: 70px;
+      left: 30px;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: green;
+    }
+
+    /* Teléfono */
+    .tarjeta.plantilla-canva .telefono {
+      position: absolute;
+      bottom: 30px;
+      left: 40px;
+      font-size: 1.3em;
+      color: white;
+    }
+    /* Nombre */
+    .tarjeta.plantilla-canva .nombre {
+      position: absolute;
+      bottom: 15px;
+      right: 20px;/* Espacio desde la izquierda */
+      font-size: 1.5em; /* Reduce el tamaño de fuente */
+      color: white;
+      /* background:red; */
+      width: 165px;
+      text-align:center;
+    }
+    /* Formulario */
+    .formulario {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 300px;
+    }
+
+    input, button {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background: #0D47A1;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1565C0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tarjeta -->
+  <div id="tarjeta" class="tarjeta plantilla-canva">
+    <img id="previewFoto" class="foto" src="https://via.placeholder.com/110x130" alt="Foto">
+    <div id="previewCiudad" class="ciudad">Ciudad</div>
+    <div id="previewTelefono" class="telefono">Tel: 0000000000</div>
+    <div id="previewNombre" class="nombre">Nombre</div>    
+  </div>
+
+  <!-- Formulario -->
+  <div class="formulario">
+    <input type="file" id="fotoInput" accept="image/*">
+    <input type="text" id="ciudadInput" placeholder="Escribe tu ciudad">
+    <input type="text" id="telefonoInput" placeholder="Escribe tu teléfono">
+    <input type="text" id="nombreInput" placeholder="Escribe tu nombre">    
+    <button id="descargarBtn">Descargar tarjeta</button>
+  </div>
+
+  <!-- Librería html2canvas -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    // === FOTO ===
+    const fotoInput = document.getElementById("fotoInput");
+    const previewFoto = document.getElementById("previewFoto");
+    fotoInput.addEventListener("change", function() {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          previewFoto.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // === CIUDAD ===
+    const ciudadInput = document.getElementById("ciudadInput");
+    const previewCiudad = document.getElementById("previewCiudad");
+    ciudadInput.addEventListener("input", function() {
+      previewCiudad.textContent = ciudadInput.value || "Ciudad";
+    });
+        // === NOMBRE ===
+    const nombreInput = document.getElementById("nombreInput");
+    const previewNombre = document.getElementById("previewNombre");
+    nombreInput.addEventListener("input", function() {
+      previewNombre.textContent = nombreInput.value || "Nombre";
+    });
+
+    // === TELÉFONO ===
+    const telefonoInput = document.getElementById("telefonoInput");
+    const previewTelefono = document.getElementById("previewTelefono");
+    telefonoInput.addEventListener("input", function() {
+      previewTelefono.textContent = telefonoInput.value 
+        ? "Tel: " + telefonoInput.value 
+        : "Tel: 0000000000";
+    });
+
+    // === DESCARGAR TARJETA ===
+    document.getElementById("descargarBtn").addEventListener("click", function() {
+      html2canvas(document.getElementById("tarjeta"), {
+        scale:4}).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "tarjeta.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
+    });
+  </script>
+
+</body>
+</html>
