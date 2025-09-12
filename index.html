@@ -21,7 +21,7 @@
       width:100%;
       max-width: 400px;
       height: auto;
-      aspect-ratio:720/1080;
+      aspect-ratio:800/1080;
       background: url("images/FormINECard.png") no-repeat center/cover; /* 🔥 cambia por tu PNG de Canva */
       border-radius: 12px;
       overflow: hidden;
@@ -32,7 +32,7 @@
     /* Foto */
     .tarjeta.plantilla-canva .foto {
       position: absolute;
-      bottom: 57px;   
+      Top: 57px;   
       right: 18px;    
       width: 165px;
       height: 220px;
@@ -63,7 +63,7 @@
     /* Nombre */
     .tarjeta.plantilla-canva .nombre {
       position: absolute;
-      bottom: 15px;
+      Top: 15px;
       right: 20px;/* Espacio desde la izquierda */
       font-size: 1.5em; /* Reduce el tamaño de fuente */
       color: solid black;
@@ -102,16 +102,14 @@
   <!-- Tarjeta -->
   <div id="tarjeta" class="tarjeta plantilla-canva">
     <img id="previewFoto" class="foto" src="https://via.placeholder.com/110x130" alt="Foto">
-    <div id="previewCiudad" class="ciudad">Ciudad</div>
-    <div id="previewTelefono" class="telefono">Tel: 0000000000</div>
+    <div id="previewFecha-hora" class="telefono">28/02/2026 00:00:00</div>
     <div id="previewNombre" class="nombre">Nombre</div>    
   </div>
 
   <!-- Formulario -->
   <div class="formulario">
     <input type="file" id="fotoInput" accept="image/*">
-    <input type="text" id="ciudadInput" placeholder="Escribe tu ciudad">
-    <input type="text" id="telefonoInput" placeholder="Escribe tu teléfono">
+    <input type="text" id="Fecha-horaInput" placeholder="Fecha y hora de ID">
     <input type="text" id="nombreInput" placeholder="Escribe tu nombre">    
     <button id="descargarBtn">Descargar tarjeta</button>
   </div>
@@ -141,7 +139,7 @@
     });
 
     // === Fecha-Hora ===
-    const Fecha-horaInput = document.getElementById("fecha-horaInput");
+    const Fecha-horaInput = document.getElementById("Fecha-horaInput");
     const previewFecha-hora = document.getElementById("previewFecha-hora");
     Fecha-horaInput.addEventListener("input", function() {
       previewFecha-hora.textContent = Fecha-horaInput.value 
