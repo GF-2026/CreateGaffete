@@ -65,25 +65,23 @@
       color: solid black;
     }
 
-    /* fechahora */
-    .tarjeta.plantilla-canva. fechahora {
-      position: absolute;
-      right: 58px;
-      bottom: 72px;
-      font-size: 1.4em;
-      color: solid black;
-    }
-    /* Nombre */
-    .tarjeta.plantilla-canva. nombre {
-      position: absolute;
-      Top: 65px;
-      left: 40px;/* Espacio desde la izquierda */
-      font-size: 1.8em; /* Reduce el tamaño de fuente */
-      color: solid black;
-      /* background:red; */
-      width: 165px;
-      text-align:center;
-    }
+ .tarjeta.plantilla-canva .nombre {
+  position: absolute;
+  top: 65px;
+  left: 40px;
+  font-size: 1.8em;
+  color: black; /* quité el "solid" que estaba mal */
+  width: 165px;
+  text-align: center;
+}
+
+.tarjeta.plantilla-canva .fechahora {
+  position: absolute;
+  right: 58px;
+  bottom: 72px;
+  font-size: 1.4em;
+  color: black;
+}
     /* Formulario */
     .formulario {
       margin-top: 20px;
