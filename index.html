@@ -28,8 +28,20 @@
       border:3px solid black;
       box-shadow: 0 8px 20px rgba(0,0,0,0.45);
     }
+/* === FOTO === */
+#previewFoto {
+  position: absolute;
+  top: 57px;   
+  right: 18px;    
+  width: 110px;   /* ajusta al tamaño que necesites */
+  height: 130px;  /* ajusta al tamaño que necesites */
+  object-fit: cover; /* hace que rellene el marco sin deformarse */
+  border-radius: 8px; /* opcional: esquinas redondeadas */
+  border: 2px solid black; /* opcional: borde */
+  z-index: 5;
+}
 
-    /* Foto  */ 
+    /* Foto 
     .tarjeta.plantilla-canva.foto {
       position: absolute;
       Top: 57px;   
@@ -37,12 +49,11 @@
       width: 16px;
       height: 22px;
       border-radius: none;
-        /*border-radius: 45%;
-      border: 4px solid green;*/ 
       border: none;
       object-fit: cover;
       z-index: 5;
-    }
+    } 
+    */ 
 
     /* Ciudad */
     .tarjeta.plantilla-canva.ciudad {
