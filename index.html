@@ -30,7 +30,7 @@
     }
 
     /* Foto  */ 
-    .tarjeta.plantilla-canva .foto {
+    .tarjeta.plantilla-canva.foto {
       position: absolute;
       Top: 57px;   
       right: 18px;    
@@ -45,7 +45,7 @@
     }
 
     /* Ciudad */
-    .tarjeta.plantilla-canva .ciudad {
+    .tarjeta.plantilla-canva.ciudad {
       position: absolute;
       top: 70px;
       left: 30px;
@@ -55,7 +55,7 @@
     }
 
     /* Teléfono */
-    .tarjeta.plantilla-canva .telefono {
+    .tarjeta.plantilla-canva.fechahora {
       position: absolute;
       bottom: 30px;
       left: 40px;
@@ -63,7 +63,7 @@
       color: solid black;
     }
     /* Nombre */
-    .tarjeta.plantilla-canva .nombre {
+    .tarjeta.plantilla-canva.nombre {
       position: absolute;
       Top: 15px;
       right: 20px;/* Espacio desde la izquierda */
@@ -104,14 +104,14 @@
   <!-- Tarjeta -->
   <div id="tarjeta" class="tarjeta plantilla-canva">
     <img id="previewFoto" class="foto" src="https://via.placeholder.com/110x130" alt="Foto">
-    <div id="previewFecha-hora" class="telefono"></div>
+    <div id="previewfechahora" class="fechahora"></div>
     <div id="previewNombre" class="nombre"></div>    
   </div>
 
   <!-- Formulario -->
   <div class="formulario">
     <input type="file" id="fotoInput" accept="image/*">
-    <input type="text" id="Fecha-horaInput" placeholder="Fecha y hora de ID">
+    <input type="text" id="fechahoraInput" placeholder="Fecha y hora de ID">
     <input type="text" id="nombreInput" placeholder="Escribe tu nombre">    
     <button id="descargarBtn">Descargar tarjeta</button>
   </div>
@@ -141,11 +141,11 @@
     });
 
     // === Fecha-Hora ===
-    const Fecha-horaInput = document.getElementById("Fecha-horaInput");
-    const previewFecha-hora = document.getElementById("previewFecha-hora");
-    Fecha-horaInput.addEventListener("input", function() {
-      previewFecha-hora.textContent = Fecha-horaInput.value 
-        ? "C. " + Fecha-horaInput.value 
+    const fechahoraInput = document.getElementById("fechahoraInput");
+    const previewFechahora = document.getElementById("previewfechahora");
+    fechahoraInput.addEventListener("input", function() {
+      previewfechahora.textContent = fechahoraInput.value 
+        ? "C. " + fechahoraInput.value 
         : "C. El Altísimo";
     });
 
